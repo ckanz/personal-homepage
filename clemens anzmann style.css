@@ -29,11 +29,27 @@ body {
 	border: none;
 }
 
+.content {
+	position: absolute;
+	top: 100px;
+	margin-left: 200px;
+}
+
+#Me {
+	visibility: hidden;
+}
+#Life {
+	visibility: visible;
+}
+#Work {
+	visibility: hidden;
+}
+
 #header {
 
 }
 
-#sidebar {
+#menu {
 	position: absolute;
 	width: 200px;
     font-family: Font2, arial, sans-serif;
@@ -41,11 +57,7 @@ body {
 	font-weight: normal;
 }
 
-#content {
-	position: absolute;
-	top: 100px;
-	margin-left: 200px;
-}
+
 
 #footer {
 
