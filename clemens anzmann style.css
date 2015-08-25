@@ -17,7 +17,7 @@ a img { border:0 }
 
 body {
 	width: 50%;
-	min-width: 700px;
+	min-width: 750px;
 	margin-right: auto;
 	margin-left: auto;
 	font-family: "Font", arial, sans-serif;
@@ -31,18 +31,16 @@ body {
 
 .content {
 	position: absolute;
-	top: 100px;
-	margin-left: 200px;
 }
 
 #Me {
 	visibility: hidden;
 }
 #Life {
-	visibility: visible;
+	visibility: hidden;
 }
 #Work {
-	visibility: hidden;
+	visibility: visible;
 }
 
 #header {
@@ -55,6 +53,8 @@ body {
     font-family: Font2, arial, sans-serif;
 	font-size: 14px;
 	font-weight: normal;
+	text-align: right;
+	margin-left: -250px;
 }
 
 
