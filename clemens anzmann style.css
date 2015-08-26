@@ -10,14 +10,11 @@ a img { border:0 }
     font-family: "Font";
     src: url("Existence-Light.otf");
 }
-@font-face {
-    font-family: "Font2";
-    src: url("Armata-Regular.ttf");
-}
+
 
 body {
-	width: 50%;
-	min-width: 750px;
+	width: 75%;
+	min-width: 880px;
 	margin-right: auto;
 	margin-left: auto;
 	font-family: "Font", arial, sans-serif;
@@ -27,57 +24,28 @@ body {
 	background-image: url("img/Clemens Anzmann background.jpg");
 	background-repeat: no-repeat;
 	border: none;
+	text-align: center;
 }
 
 .content {
-	position: absolute;
+	margin: auto;
 }
 
-#Me {
-	visibility: hidden;
-}
-#Life {
-	visibility: hidden;
-}
-#Work {
-	visibility: visible;
-}
+#Me {}
 
-#header {
-
+#Contact { 
+	padding: 55px;
+	margin: auto;
+	display: table;
+    width: 75%;
 }
 
-#menu {
-	position: absolute;
-	width: 200px;
-    font-family: Font2, arial, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	text-align: right;
-	margin-left: -250px;
+#Contact a {
+	display: table-cell;
+    width: 16.666666667%;
+    line-height: 87px;
+    text-align: center;
 }
 
-
-
-#footer {
-
-}
-
-.button {
-	background-color:transparent;
-	color:#ffffff;
-	font-family:"Font";
-	font-size:28px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #000066;
-}
-.button:active {
-	position:relative;
-	top:2px;
-}
-.button:hover {
-  text-shadow:0px 0px 60px #0000FF;
-  background-image: url("img/lbg.png");
-}
-
+#Life {}
 
