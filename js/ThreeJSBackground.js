@@ -23,7 +23,7 @@ camera, scene, renderer;
 				renderer = new THREE.CanvasRenderer();
 				renderer.setClearColorHex( 0x444444, 1 );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( document.body.offsetWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
 				var PI2 = Math.PI * 2;
@@ -91,7 +91,7 @@ camera, scene, renderer;
 
 				if ( event.touches.length > 1 ) {
 
-					event.preventDefault();
+					//event.preventDefault();
 
 					mouseX = event.touches[ 0 ].pageX;
 					mouseY = event.touches[ 0 ].pageY;
@@ -104,7 +104,7 @@ camera, scene, renderer;
 
 				if ( event.touches.length == 1 ) {
 
-					event.preventDefault();
+					//event.preventDefault();
 
 					mouseX = event.touches[ 0 ].pageX;
 					mouseY = event.touches[ 0 ].pageY;
