@@ -23,13 +23,15 @@ camera, scene, renderer;
 				renderer = new THREE.CanvasRenderer();
 				renderer.setClearColorHex( 0x444444, 1 );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( document.body.offsetWidth, window.innerHeight );
+				renderer.setSize( 2000, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
 				var PI2 = Math.PI * 2;
 				var material = new THREE.SpriteCanvasMaterial( {
 
-					color: 0x929292,
+					color: 0x000000,
+					border: 1.0,
+					
 					program: function ( context ) {
 						context.beginPath();
 						context.arc( 0, 0, 0.5, 0, PI2, true );
@@ -41,7 +43,7 @@ camera, scene, renderer;
 
 				var geometry = new THREE.Geometry();
 
-				for ( var i = 0; i < 100; i ++ ) {
+				for ( var i = 0; i < 15; i ++ ) {
 
 					particle = new THREE.Sprite( material );
 					particle.position.x = Math.random() * 2 - 1;
@@ -49,14 +51,14 @@ camera, scene, renderer;
 					particle.position.z = Math.random() * 2 - 1;
 					particle.position.normalize();
 					particle.position.multiplyScalar( Math.random() * 10 + 450 );
-					particle.scale.x = particle.scale.y = 25;
+					particle.scale.x = particle.scale.y = 50;
 					scene.add( particle );
 
 					geometry.vertices.push( particle.position );
 
 				}
 
-				var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x929292, opacity: 0.5, linewidth: 5 } ) );
+				var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.5, linewidth: 5 } ) );
 				scene.add( line );
 
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
