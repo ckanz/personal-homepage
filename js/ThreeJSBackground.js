@@ -111,5 +111,7 @@ var render = function() {
     renderer.render(scene, camera);
 }
 
-init();
-animate();
+if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    init();
+    animate();
+}
