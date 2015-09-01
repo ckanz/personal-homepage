@@ -50,7 +50,7 @@ var init = function() {
         particle.position.z = Math.random() * 2 - 1;
         particle.position.normalize();
         particle.position.multiplyScalar(Math.random() * 10 + 450);
-        particle.scale.x = particle.scale.y = 50;
+        particle.scale.x = particle.scale.y = 5;
         scene.add(particle);
 
         geometry.vertices.push(particle.position);
@@ -60,7 +60,7 @@ var init = function() {
     var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({
         color: 0x000000,
         opacity: 0.5,
-        linewidth: 5
+        linewidth: 1
     }));
     scene.add(line);
 
