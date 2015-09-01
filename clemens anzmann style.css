@@ -37,7 +37,7 @@ a img {
 }
 .content {
     width: 75%;
-    min-width: 880px;
+    min-width: 445px;
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -45,7 +45,7 @@ a img {
 }
 #innercontent {
     width: 75%;
-    min-width: 880px;
+    min-width: 445px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(0, 0, 0, 0.3);
@@ -65,28 +65,38 @@ a img {
     font-size: 50px;
     padding-top: 25px;
 }
+
+#Me,
+#Contact,
+#Media,
+#Life {
+    margin: auto;
+    display: table;
+    width: 75%;
+    padding-bottom: 15px;
+}
+
 #Me p {
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 75%;
     margin: auto;
     text-align: justify;
-    padding-bottom: 15px;
-    padding-top: 15px;
 }
 #Me img {
     border-radius: 5px;
     border: 1px solid gray;
 }
-#Contact,
-#Media {
-    padding: 25px;
-    margin: auto;
-    display: table;
-    width: 75%;
-}
+
 #Contact a,
+#Life a,
 #Media a {
     display: table-cell;
     width: 16.666666667%;
     line-height: 87px;
     text-align: center;
+}
+#Life iframe {
+    height: 500px;
+    width: 75%;
 }
