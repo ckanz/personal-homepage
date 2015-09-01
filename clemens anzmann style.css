@@ -36,8 +36,9 @@ a img {
     border: 0
 }
 .content {
-    width: 75%;
-    min-width: 445px;
+    width: 95%;
+    min-width: 332px;
+    max-width: 900px;
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -45,7 +46,8 @@ a img {
 }
 #innercontent {
     width: 75%;
-    min-width: 445px;
+    min-width: 332px;
+    max-width: 900px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(0, 0, 0, 0.1);
@@ -73,14 +75,11 @@ a img {
 #Life {
     margin: auto;
     display: table;
-    width: 75%;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 #Me p {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 75%;
+    padding: 15px;
     margin: auto;
     text-align: justify;
 }
@@ -98,6 +97,8 @@ a img {
     text-align: center;
 }
 #Life iframe {
-    height: 500px;
-    width: 75%;
+    height: 484px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
