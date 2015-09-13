@@ -71,11 +71,13 @@
       ga('send', 'pageview');
       
       // loader
-      window.onload = function () { 
-        document.getElementById("innercontent").style.opacity = "0.8";
-        document.getElementById("loader").style.visibility = "hidden";
-        document.getElementById("loader").style.height = "0px";
-      }
+      (function () {   
+        window.onload = function () {
+          document.getElementById("innercontent").style.opacity = "0.8";
+          document.getElementById("loader").style.visibility = "hidden";
+          document.getElementById("loader").style.height = "0px";
+        };
+      })();
       
     </script>
   </body>
