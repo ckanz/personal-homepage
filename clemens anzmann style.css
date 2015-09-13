@@ -51,12 +51,20 @@ a img {
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(0, 0, 0, 0.1);
-    opacity: 0.8;
+    opacity: 0.0;
+    -webkit-transition: opacity 2s; /* Safari */
+    transition: opacity 2s;
     border-radius: 10px;
     position: relative;
     z-index: 1;
     padding-bottom: 5px;
-    visibility: hidden;
+}
+
+#loader {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
 }
 #background {
     width: 100%;

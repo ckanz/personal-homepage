@@ -22,7 +22,10 @@
         <hr>
       </div>
       
+      <img src="img/719.gif" id="loader"/>
+      
       <div id="innercontent">
+      
       <div class="content" id="Me">
         <p>I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in Cork, Ireland and <a href="http://www.h-da.de" target="blank">Hochschule Darmstadt</a>. Now working as a data experience engineer at <a href="http://www.datashaka.com" target="blank">DataShaka</a> in London.</p>
         <img src="img/clemens anzmann.jpg" width="332" height="250" />
@@ -47,14 +50,15 @@
         2015
       </div>
 
-     <div id="background" class="gradient"></div>
+     <div id="background"></div>
 
-    <!-- exmaple from http://threejs.org/examples/#canvas_lines -->
+    <!-- Background; inpisred by exmaple from http://threejs.org/examples/#canvas_lines -->
     <script src="js/three.min.js"></script>
 		<script src="js/Projector.js"></script>
 		<script src="js/CanvasRenderer.js"></script>
 		<script src="js/ThreeJSBackground.js"></script>
     <script>
+    
       // Twitter Timeline
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     
@@ -66,7 +70,13 @@
       ga('create', 'UA-67257022-1', 'auto');
       ga('send', 'pageview');
       
-      window.onload = function () { document.getElementById("innercontent").style.visibility = "visible"; }
+      // loader
+      window.onload = function () { 
+        document.getElementById("innercontent").style.opacity = "0.8";
+        document.getElementById("loader").style.visibility = "hidden";
+        document.getElementById("loader").style.height = "0px";
+      }
+      
     </script>
   </body>
 </html>
