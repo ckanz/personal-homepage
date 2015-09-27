@@ -17,14 +17,12 @@
    <body>
 
 
-      <div class="content" id="header">
+      <div id="header">
         Clemens Anzmann
         <hr>
       </div>
       
-      <img src="img/719.gif" id="loader"/>
-      
-      <div id="innercontent">
+      <div id="innercontent" class="loadingContent">
       
       <div class="content" id="Me">
         <p>I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in Cork, Ireland and <a href="http://www.h-da.de" target="blank">Hochschule Darmstadt</a>. Now working as a data experience engineer at <a href="http://www.datashaka.com" target="blank">DataShaka</a> in London.</p>
@@ -73,9 +71,11 @@
       // loader
       (function () {   
         window.onload = function () {
-          document.getElementById("innercontent").style.opacity = "0.8";
-          document.getElementById("loader").style.visibility = "hidden";
-          document.getElementById("loader").style.height = "0px";
+          var content = document.getElementsByClassName("content");
+          for(var i=0;i<content.length;i++) {
+            content[i].style.opacity = "0.8";
+          }
+          document.getElementById("innercontent").removeAttribute("class");
         };
       })();
       
