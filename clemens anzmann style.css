@@ -63,15 +63,6 @@ a img {
     padding-bottom: 5px;
 }
 
-#background {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
 #header {
     margin-right: auto;
     margin-left: auto;
@@ -113,6 +104,14 @@ a img {
     width: 100%;
     border-radius: 5px;
     border: 1px solid gray;
+}
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
 
 .loadingContent {
