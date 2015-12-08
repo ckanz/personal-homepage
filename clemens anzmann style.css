@@ -115,7 +115,7 @@ a img {
 }
 
 .loadingContent {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), #ffffff, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), #333, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
     background-size: 100% 300%;
     -webkit-animation: AnimationName 3s ease infinite;
     -moz-animation: AnimationName 3s ease infinite;
