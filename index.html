@@ -10,6 +10,7 @@
       <link href="clemens anzmann style.css" rel="stylesheet"/>
    </head>
    <body>
+      <div id="particles-js"></div>
       <div id="header">
          Clemens Anzmann
          <hr>
@@ -35,7 +36,6 @@
          <hr>
          2015
       </div>
-      <div id="background"></div>
       <script>
       
          // Twitter Timeline
@@ -54,12 +54,14 @@
            window.onload = function () {
              var content = document.getElementsByClassName("content");
              for(var i=0;i<content.length;i++) {
-               content[i].style.opacity = "0.8";
+               content[i].style.opacity = "0.85";
              }
              document.getElementById("innercontent").removeAttribute("class");
            };
          })();
          
       </script>
+      <script src="js/particles.min.js"></script>
+      <script src="js/app.js"></script>
    </body>
 </html>
