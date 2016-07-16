@@ -81,18 +81,21 @@ a img {
 }
 
 #bio {
-    margin-top: 15px;
-    width: 332px;
-    height: 250px;
-    float: right;
-    position: relative;
+    text-align: left;
+    margin: 10px;
+    min-width: 302px;
+    padding: 10px;
     display: inline-block;
     border-radius: 5px;
-    border: 1px solid gray;
+}
+
+#biotext {
+    margin: 10px;
 }
 
 #Me img {
     margin-top: 15px;
+    margin: 10px;
     float:left;
     border-radius: 5px;
     border: 1px solid gray;
@@ -108,7 +111,8 @@ a img {
 }
 
 #Life iframe {
-    width: 100%;
+    margin: 10px;
+    width: 94%;
     height: 484px;
     border-radius: 5px;
     border: 1px solid gray;
