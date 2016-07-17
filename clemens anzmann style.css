@@ -40,7 +40,7 @@ a img {
 
 .content {
     width: 95%;
-    min-width: 350px;
+    min-width: 355px;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
@@ -53,7 +53,7 @@ a img {
 
 #innercontent {
     width: 75%;
-    min-width: 350px;
+    min-width: 355px;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
@@ -75,17 +75,28 @@ a img {
 #Contact,
 #Media,
 #Life {
-    margin: auto;
     display: table;
+    width: 95%;
     margin-bottom: 15px;
 }
 
-#Me p {
-    padding: 15px;
-    margin: auto;
-    text-align: justify;
+#bio {
+    text-align: left;
+    margin: 10px;
+    min-width: 302px;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
 }
+
+#biotext {
+    margin: 10px;
+}
+
 #Me img {
+    margin-top: 15px;
+    margin: 10px;
+    float:left;
     border-radius: 5px;
     border: 1px solid gray;
 }
@@ -100,8 +111,9 @@ a img {
 }
 
 #Life iframe {
+    margin: 10px;
+    width: 94%;
     height: 484px;
-    width: 100%;
     border-radius: 5px;
     border: 1px solid gray;
 }
@@ -114,6 +126,7 @@ a img {
   left: 0px;
 }
 
+/*
 .loadingContent {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0), #cceeff,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
     background-size: 100% 300%;
@@ -137,3 +150,4 @@ a img {
     50%{background-position:50% 100%}
     100%{background-position:50% 0%}
 }
+*/

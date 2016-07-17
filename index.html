@@ -16,10 +16,12 @@
          <hr>
       </div>
       <div id="innercontent" class="loadingContent">
+         <span id="loader"><br/>loading content ...</span>
+         <br/>
          <div class="content" id="Me">
-            <p>I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in <a href="https://en.wikipedia.org/wiki/Cork_(city)" target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">h_da</a> in <a href="https://en.wikipedia.org/wiki/Darmstadt" target="blank">Darmstadt</a>. Now happily working as a developer in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a>.</p>
-            <img src="img/clemens anzmann.jpg" width="332" height="250" />
-            <span id="twitter"><a class="twitter-timeline" href="https://twitter.com/clemens_anzmann" data-widget-id="296273573276942336">Tweets by @clemens_anzmann</a></span>
+            <div id="bio">
+               I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in <a href="https://en.wikipedia.org/wiki/Cork_(city)" target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">h_da</a> in <a href="https://en.wikipedia.org/wiki/Darmstadt" target="blank">Darmstadt</a>. Now happily working as a developer in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a>.
+            </div>
          </div>
          <div class="content" id="Life">
             <iframe src='http://embed.verite.co/timeline/?source=1CzfxyGuZiOerTmJbOv4Hr4H_y2mZ1rmybnNyLMIvnIk&font=PT&maptype=toner&lang=en&height=500&start_at_end=false' frameborder='0'></iframe>
@@ -34,13 +36,9 @@
       </div>
       <div class="content" id="footer">
          <hr>
-         2015
+         2016
       </div>
       <script>
-      
-         // Twitter Timeline
-         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-         
          // GA
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -56,7 +54,7 @@
              for(var i=0;i<content.length;i++) {
                content[i].style.opacity = "0.85";
              }
-             document.getElementById("innercontent").removeAttribute("class");
+             document.getElementById("loader").style.display = 'none';
            };
          })();
          
