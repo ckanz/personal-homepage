@@ -46,9 +46,9 @@
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
          ga('create', 'UA-67257022-1', 'auto');
          ga('send', 'pageview');
-         
+
          // loader
-         (function () {   
+         (function () {
            window.onload = function () {
              var content = document.getElementsByClassName("content");
              for(var i=0;i<content.length;i++) {
@@ -57,9 +57,10 @@
              document.getElementById("loader").style.display = 'none';
            };
          })();
-         
+
       </script>
       <script src="js/particles.min.js"></script>
-      <script src="js/app.js"></script>
+      <script src="js/yahooWeatherApi.js"></script>
+      <script src="js/particles.js"></script>
    </body>
 </html>
