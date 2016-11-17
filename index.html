@@ -35,8 +35,9 @@
          </div>
       </div>
       <div class="content" id="footer">
-         <hr>
-         2016
+         <hr/>
+         <div>2016</div>
+         <div id="footer-text">BTW: the more points you see floating around in the background, the warmer it is in London :)</div>
       </div>
       <script>
          // GA
@@ -46,20 +47,24 @@
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
          ga('create', 'UA-67257022-1', 'auto');
          ga('send', 'pageview');
-         
          // loader
-         (function () {   
+         (function () {
            window.onload = function () {
              var content = document.getElementsByClassName("content");
              for(var i=0;i<content.length;i++) {
                content[i].style.opacity = "0.85";
              }
              document.getElementById("loader").style.display = 'none';
+             getTemperature(4418, function (temp) {
+               particlesJS('particles-js',
+                 getParticleSettings(temp)
+               );
+             });
            };
          })();
-         
       </script>
       <script src="js/particles.min.js"></script>
-      <script src="js/app.js"></script>
+      <script src="js/yahooWeatherApi.js"></script>
+      <script src="js/particles.js"></script>
    </body>
 </html>
