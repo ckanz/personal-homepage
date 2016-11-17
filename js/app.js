@@ -1,8 +1,14 @@
+var weatherLondonUrl = 'https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20%3D%2044418&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+var xhr = new XMLHttpRequest();
+xhr.open('GET', weatherLondonUrl, false);
+xhr.send();
+var temperature = (JSON.parse(xhr.response)).query.results.channel.item.condition.temp;
+
 particlesJS('particles-js',
   {
     'particles': {
       'number': {
-        'value': 50,
+        'value': temperature,
         'density': {
           'enable': true,
           'value_area': 800
@@ -19,11 +25,6 @@ particlesJS('particles-js',
         },
         'polygon': {
           'nb_sides': 5
-        },
-        'image': {
-          'src': 'img/github.svg',
-          'width': 100,
-          'height': 100
         }
       },
       'opacity': {
@@ -71,37 +72,10 @@ particlesJS('particles-js',
       'detect_on': 'canvas',
       'events': {
         'onhover': {
-          'enable': false,
-          'mode': 'repulse'
+          'enable': false
         },
         'onclick': {
-          'enable': false,
-          'mode': 'push'
-        },
-        'resize': true
-      },
-      'modes': {
-        'grab': {
-          'distance': 400,
-          'line_linked': {
-            'opacity': 1
-          }
-        },
-        'bubble': {
-          'distance': 400,
-          'size': 40,
-          'duration': 2,
-          'opacity': 8,
-          'speed': 3
-        },
-        'repulse': {
-          'distance': 200
-        },
-        'push': {
-          'particles_nb': 4
-        },
-        'remove': {
-          'particles_nb': 2
+          'enable': false
         }
       }
     },
