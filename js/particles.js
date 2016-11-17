@@ -1,8 +1,8 @@
-particlesJS('particles-js',
-  {
+var getParticleSettings = function (temp) {
+  return {
     'particles': {
       'number': {
-        'value': getTemperature(4418),
+        'value': temp,
         'density': {
           'enable': true,
           'value_area': 800
@@ -82,5 +82,5 @@ particlesJS('particles-js',
       'background_repeat': 'no-repeat',
       'background_size': 'cover'
     }
-  }
-);
+  };
+};

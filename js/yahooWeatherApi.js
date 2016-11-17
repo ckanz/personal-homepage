@@ -10,19 +10,20 @@ var getYeahooWeatherApiUrl = function (woeid) {
   );
 };
 
-var getTemperature = function (woeid) {
+var getTemperature = function (woeid, callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', getYeahooWeatherApiUrl(woeid), false);
-  xhr.send();
-  if (xhr.status === 200) {
-    try {
-      var fahrenheitVal = (JSON.parse(xhr.response)).query.results.channel.item.condition.temp;
-      var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
-      return celsiusVal;
-    } catch (err) {
-      return 0;
-    }
-  } else {
-    return 0;
-  }
+  try {
+    xhr.open('GET', getYeahooWeatherApiUrl(woeid), true);
+    xhr.onload = function (err) {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          var fahrenheitVal = (JSON.parse(xhr.response)).query.results.channel.item.condition.temp;
+          var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
+          celsiusVal += 10;  // show zero points when it's colder than -10 degree celcius
+          callback(celsiusVal);
+        }
+      }
+    };
+    xhr.send(null);
+  } catch (err) {}
 };
