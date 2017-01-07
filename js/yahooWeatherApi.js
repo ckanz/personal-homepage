@@ -10,6 +10,13 @@ var getYeahooWeatherApiUrl = function (woeid) {
   );
 };
 
+var displayFooter = function () {
+  var footer = document.getElementById('footer-text');
+  if (footer && footer.style) {
+    footer.style.visibility = 'visible';
+  }
+};
+
 var getTemperature = function (woeid, callback) {
   var xhr = new XMLHttpRequest();
   try {
@@ -31,6 +38,7 @@ var getTemperature = function (woeid, callback) {
               if (response.query.results.channel && response.query.results.channel.item && response.query.results.channel.item.condition) {
                 var fahrenheitVal = response.query.results.channel.item.condition.temp;
                 var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
+                displayFooter();
                 callback(celsiusVal);
               }
             }
