@@ -19,12 +19,21 @@ var getTemperature = function (woeid, callback) {
         if (xhr.status === 200) {
           try {
             var response = JSON.parse(xhr.response);
-            var fahrenheitVal = response.query.results.channel.item.condition.temp;
-            var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
-            callback(celsiusVal);
           } catch (err) {
             console.log('Unable to parse Yahoo Weather API response: ' + err);
             callback(10);
+          }
+          if (response && response.query) {
+            if (!response.query.results) {
+              console.log('Yahoo Weather API response empty.');
+              callback(10);
+            } else {
+              if (response.query.results.channel && response.query.results.channel.item && response.query.results.channel.item.condition) {
+                var fahrenheitVal = response.query.results.channel.item.condition.temp;
+                var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
+                callback(celsiusVal);
+              }
+            }
           }
         }
       }
