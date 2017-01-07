@@ -10,6 +10,13 @@ var getYeahooWeatherApiUrl = function (woeid) {
   );
 };
 
+var displayFooter = function () {
+  var footer = document.getElementById('footer-text');
+  if (footer && footer.style) {
+    footer.style.visibility = 'visible';
+  }
+};
+
 var getTemperature = function (woeid, callback) {
   var xhr = new XMLHttpRequest();
   try {
@@ -17,13 +24,30 @@ var getTemperature = function (woeid, callback) {
     xhr.onload = function (err) {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          var fahrenheitVal = (JSON.parse(xhr.response)).query.results.channel.item.condition.temp;
-          var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
-          celsiusVal += 10;  // show zero points when it's colder than -10 degree celcius
-          callback(celsiusVal);
+          try {
+            var response = JSON.parse(xhr.response);
+          } catch (err) {
+            console.log('Unable to parse Yahoo Weather API response: ' + err);
+            callback(10);
+          }
+          if (response && response.query) {
+            if (!response.query.results) {
+              console.log('Yahoo Weather API response empty.');
+              callback(10);
+            } else {
+              if (response.query.results.channel && response.query.results.channel.item && response.query.results.channel.item.condition) {
+                var fahrenheitVal = response.query.results.channel.item.condition.temp;
+                var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
+                displayFooter();
+                callback(celsiusVal);
+              }
+            }
+          }
         }
       }
     };
     xhr.send(null);
-  } catch (err) {}
+  } catch (err) {
+    console.log('Unable to retrieve Yahoo Weather API data: ' + err);
+  }
 };

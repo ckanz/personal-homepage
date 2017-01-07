@@ -1,4 +1,9 @@
 var getParticleSettings = function (temp) {
+  var colour = '#ffffff';
+  if (temp < 0) {
+    colour = '#08C';
+    temp = Math.abs(temp);
+  }
   return {
     'particles': {
       'number': {
@@ -9,7 +14,7 @@ var getParticleSettings = function (temp) {
         }
       },
       'color': {
-        'value': '#ffffff'
+        'value': colour
       },
       'shape': {
         'type': 'circle',
@@ -44,7 +49,7 @@ var getParticleSettings = function (temp) {
       'line_linked': {
         'enable': true,
         'distance': 150,
-        'color': '#ffffff',
+        'color': colour,
         'opacity': 0.4,
         'width': 1
       },
