@@ -17,13 +17,20 @@ var getTemperature = function (woeid, callback) {
     xhr.onload = function (err) {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          var fahrenheitVal = (JSON.parse(xhr.response)).query.results.channel.item.condition.temp;
-          var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
-          celsiusVal += 10;  // show zero points when it's colder than -10 degree celcius
-          callback(celsiusVal);
+          try {
+            var response = JSON.parse(xhr.response);
+            var fahrenheitVal = response.query.results.channel.item.condition.temp;
+            var celsiusVal = fahrenheitToCelsius(fahrenheitVal);
+            callback(celsiusVal);
+          } catch (err) {
+            console.log('Unable to parse Yahoo Weather API response: ' + err);
+            callback(10);
+          }
         }
       }
     };
     xhr.send(null);
-  } catch (err) {}
+  } catch (err) {
+    console.log('Unable to retrieve Yahoo Weather API data: ' + err);
+  }
 };
