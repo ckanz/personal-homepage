@@ -1,13 +1,13 @@
-var getParticleSettings = function (temp) {
+var getParticleSettings = function (particleNumber) {
   var colour = '#ffffff';
-  if (temp < 0) {
+  if (particleNumber < 0) {
     colour = '#08C';
-    temp = Math.abs(temp);
+    particleNumber = Math.abs(particleNumber);
   }
   return {
     'particles': {
       'number': {
-        'value': temp,
+        'value': particleNumber,
         'density': {
           'enable': true,
           'value_area': 800
@@ -55,13 +55,13 @@ var getParticleSettings = function (temp) {
       },
       'move': {
         'enable': true,
-        'speed': 2.5,
+        'speed': particleNumber,
         'direction': 'none',
         'random': false,
         'straight': false,
         'out_mode': 'out',
         'attract': {
-          'enable': false,
+          'enable': true,
           'rotateX': 600,
           'rotateY': 1200
         }

@@ -1,70 +1,86 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="apple-touch-fullscreen" content="yes">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-      <title>Clemens Anzmann</title>
-      <link rel="shortcut icon" href="img/clemens anzmann favi.ico">
-      <link href="styles/clemens anzmann style.css" rel="stylesheet"/>
-   </head>
-   <body>
-      <div id="particles-js"></div>
-      <div id="header">
-         Clemens Anzmann
-         <hr>
-      </div>
-      <div id="innercontent" class="loadingContent">
-         <span id="loader"><br/>loading content ...</span>
-         <br/>
-         <div class="content" id="Me">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Clemens Anzmann</title>
+    <link rel="shortcut icon" href="img/clemens anzmann favi.ico">
+    <link href="styles/clemens anzmann style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div id="header">
+        Clemens Anzmann
+        <hr>
+    </div>
+    <div id="innercontent" class="loadingContent">
+        <span id="loader"><br/>loading content ...</span>
+        <br/>
+        <div class="content" id="Me">
             <div id="bio">
-               I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in <a href="https://en.wikipedia.org/wiki/Cork_(city)" target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">h_da</a> in <a href="https://en.wikipedia.org/wiki/Darmstadt" target="blank">Darmstadt</a>. Now happily working as a developer in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a>.
+                I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in <a href="https://en.wikipedia.org/wiki/Cork_(city)"
+                    target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">h_da</a> in <a href="https://en.wikipedia.org/wiki/Darmstadt" target="blank">Darmstadt</a>. Now happily working as a developer in <a href="https://en.wikipedia.org/wiki/London"
+                    target="blank">London</a>.
             </div>
-         </div>
-         <div class="content" id="Life">
+        </div>
+        <div class="content" id="Life">
             <iframe src='http://embed.verite.co/timeline/?source=1CzfxyGuZiOerTmJbOv4Hr4H_y2mZ1rmybnNyLMIvnIk&font=PT&maptype=toner&lang=en&height=500&start_at_end=false' frameborder='0'></iframe>
-         </div>
-         <div class="content" id="Contact">
+        </div>
+        <div class="content" id="Contact">
             <a href="https://github.com/ckanz" target="_blank"><img src="img/git.png" alt="" width="70" height="70" /></a>
             <a href="http://www.linkedin.com/pub/clemens-anzmann/3b/551/913" target="_blank"><img src="img/in.png" alt="" width="70" height="70" /></a>
             <a href="http://www.behance.net/clemensanzmann" target="_blank"><img src="img/be.png" alt="" width="70" height="70" /></a>
             <a href="https://twitter.com/#!/clemens_anzmann" target="_blank"><img src="img/tw.png" alt="" width="70" height="70" /></a>
             <a href="http://soundcloud.com/clemensanzmann" target="_blank"><img src="img/sc.png" alt="" width="70" height="70" /></a>
-         </div>
-      </div>
-      <div class="content" id="footer">
-         <hr/>
-         <div>2016</div>
-         <div id="footer-text">BTW: the more points you see floating around in the background, the warmer it is in London :)</div>
-      </div>
-      <script>
-         // GA
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-         ga('create', 'UA-67257022-1', 'auto');
-         ga('send', 'pageview');
-         // loader
-         (function () {
-           window.onload = function () {
-             var content = document.getElementsByClassName("content");
-             for(var i=0;i<content.length;i++) {
-               content[i].style.opacity = "0.85";
-             }
-             document.getElementById("loader").style.display = 'none';
-             getTemperature(44418, function (temp) {
-               particlesJS('particles-js',
-                 getParticleSettings(temp)
-               );
-             });
-           };
-         })();
-      </script>
-      <script src="js/particles.min.js"></script>
-      <script src="js/yahooWeatherApi.js"></script>
-      <script src="js/particles.js"></script>
-   </body>
+        </div>
+    </div>
+    <div class="content" id="footer">
+        <hr/>
+        <p>2017</p>
+        <p id="footer-text">
+            FYI, the more particles you see floating around in the background the more polluted it is in London right now!
+            The data is coming from the <a href="https://www.londonair.org.uk/LondonAir/API">London Air API</a> by King's College London.
+        </p>
+    </div>
+    <script>
+        // GA
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-67257022-1', 'auto');
+        ga('send', 'pageview');
+        // loader
+        (function() {
+            window.onload = function() {
+                var content = document.getElementsByClassName("content");
+                for (var i = 0; i < content.length; i++) {
+                    content[i].style.opacity = "0.85";
+                }
+                document.getElementById("loader").style.display = 'none';
+                getLondonAirQuality('CT3', function(particleNumber) {
+                    particlesJS('particles-js',
+                        getParticleSettings(particleNumber)
+                    );
+                });
+            };
+        })();
+    </script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/yahooWeatherApi.js"></script>
+    <script src="js/londonAirApi.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+
 </html>
