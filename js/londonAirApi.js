@@ -1,15 +1,20 @@
 var getLondonAirApiUrl = function (siteCode) {
   //CT3
   return (
-    'http://api.erg.kcl.ac.uk/AirQuality/Daily/MonitoringIndex/Latest/SiteCode=' +
+    'http://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/SiteCode=' +
     siteCode +
     '/JSON'
   );
 };
 
-var displayFooter = function () {
+var displayFooter = function (locationName, speciesName, airQualityBand) {
   var footer = document.getElementById('footer-text');
-  if (footer && footer.style) {
+  if (footer && footer.innerHTML) {
+    var footerText = footer.innerHTML;
+    footerText += ' Current risk index for '+ speciesName +' in \''+ locationName +'\' is \''+ airQualityBand +'\'.';
+    footer.innerHTML = footerText;
+  }
+  if (footer.style) {
     footer.style.visibility = 'visible';
   }
 };
@@ -27,15 +32,20 @@ var getLondonAirQuality = function (siteCode, callback) {
             console.log('Unable to parse London Air API response: ' + err);
             callback(10);
           }
-          if (response && response.DailyAirQualityIndex) {
-            if (response.DailyAirQualityIndex.LocalAuthority && response.DailyAirQualityIndex.LocalAuthority.Site && response.DailyAirQualityIndex.LocalAuthority.Site.Species) {
-              var dioxideData = response.DailyAirQualityIndex.LocalAuthority.Site.Species[0];
+          if (response && response.HourlyAirQualityIndex) {
+            if (response.HourlyAirQualityIndex.LocalAuthority && response.HourlyAirQualityIndex.LocalAuthority.Site && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
+              var dioxideData = response.HourlyAirQualityIndex.LocalAuthority.Site.species[0];
+              var locationName = response.HourlyAirQualityIndex.LocalAuthority['@LocalAuthorityName'];
+              var speciesName = dioxideData['@SpeciesName'];
+              var airQualityBand = dioxideData['@AirQualityBand'];
               var particleAmount = dioxideData['@AirQualityIndex'] * 2;
-              displayFooter();
+              displayFooter(locationName, speciesName, airQualityBand);
               callback(particleAmount);
             } else {
-              console.log('London Air Api response empty.')
+              console.log('London Air Api response does not contain expected data.');
             }
+          } else {
+            console.log('London Air Api response does not contain expected data.');
           }
         }
       }
