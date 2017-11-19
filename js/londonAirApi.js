@@ -33,6 +33,7 @@ var getLondonAirQuality = function (siteCode, callback) {
             callback(10);
           }
           if (response && response.HourlyAirQualityIndex) {
+            console.log(response);
             if (response.HourlyAirQualityIndex.LocalAuthority && response.HourlyAirQualityIndex.LocalAuthority.Site && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
               var dioxideData = response.HourlyAirQualityIndex.LocalAuthority.Site.species[0];
               var locationName = response.HourlyAirQualityIndex.LocalAuthority['@LocalAuthorityName'];
@@ -42,6 +43,9 @@ var getLondonAirQuality = function (siteCode, callback) {
               if(airQualityBand && airQualityIndex && airQualityBand != 'No data') {
                 displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
                 callback(airQualityIndex*2);
+              }
+              else {
+                console.log('London Air Api responsed with "No Data".');
               }
             } else {
               console.log('London Air Api response does not contain expected data.');
