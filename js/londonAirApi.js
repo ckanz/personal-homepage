@@ -33,7 +33,6 @@ var getLondonAirQuality = function (siteCode, callback) {
             callback(10);
           }
           if (response && response.HourlyAirQualityIndex) {
-            console.log(response);
             if (response.HourlyAirQualityIndex.LocalAuthority && response.HourlyAirQualityIndex.LocalAuthority.Site && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
               var dioxideData = response.HourlyAirQualityIndex.LocalAuthority.Site.species[0];
               var locationName = response.HourlyAirQualityIndex.LocalAuthority['@LocalAuthorityName'];
