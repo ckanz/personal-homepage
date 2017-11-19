@@ -15,32 +15,45 @@
     <div id="particles-js"></div>
     <div id="header">
         Clemens Anzmann
-        <hr>
+        <hr/>
     </div>
     <div id="innercontent" class="loadingContent">
-        <span id="loader"><br/>loading content ...</span>
+        <span id="loader">
+            <br/>
+            loading content ...
+        </span>
         <br/>
         <div class="content" id="Me">
             <div id="bio">
-                I'm a coder and musician who's passionate about data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, former student at <a href="http://www.cit.ie" target="blank">CIT</a> in <a href="https://en.wikipedia.org/wiki/Cork_(city)"
-                    target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">h_da</a> in <a href="https://en.wikipedia.org/wiki/Darmstadt" target="blank">Darmstadt</a>. Now happily working as a developer in <a href="https://en.wikipedia.org/wiki/London"
-                    target="blank">London</a>.
+              ❤️ code, music & especially data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, studied in Cork (Ireland) at <a href="http://www.cit.ie" target="blank">CIT</a> and Darmstadt (Germany) at <a href="http://www.h-da.de" target="blank">h_da</a>. Now working in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a> as a happy data visualisation engineer 📊.
             </div>
         </div>
         <div class="content" id="Life">
-            <iframe src='http://embed.verite.co/timeline/?source=1CzfxyGuZiOerTmJbOv4Hr4H_y2mZ1rmybnNyLMIvnIk&font=PT&maptype=toner&lang=en&height=500&start_at_end=false' frameborder='0'></iframe>
+            <iframe src='http://embed.verite.co/timeline/?source=1CzfxyGuZiOerTmJbOv4Hr4H_y2mZ1rmybnNyLMIvnIk&font=PT&maptype=toner&lang=en&height=500&start_at_end=false&initial_zoom=1&timenav_position=bottom' frameborder='0'></iframe>
         </div>
         <div class="content" id="Contact">
-            <a href="https://github.com/ckanz" target="_blank"><img src="img/git.png" alt="" width="70" height="70" /></a>
-            <a href="http://www.linkedin.com/pub/clemens-anzmann/3b/551/913" target="_blank"><img src="img/in.png" alt="" width="70" height="70" /></a>
-            <a href="http://www.behance.net/clemensanzmann" target="_blank"><img src="img/be.png" alt="" width="70" height="70" /></a>
-            <a href="https://twitter.com/#!/clemens_anzmann" target="_blank"><img src="img/tw.png" alt="" width="70" height="70" /></a>
-            <a href="http://soundcloud.com/clemensanzmann" target="_blank"><img src="img/sc.png" alt="" width="70" height="70" /></a>
+            <a href="https://github.com/ckanz" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', 'https://github.com/ckanz');">
+                <img src="img/git.png" alt="" width="70" height="70" />
+            </a>
+            <a href="http://www.linkedin.com/pub/clemens-anzmann/3b/551/913" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                <img src="img/in.png" alt="" width="70" height="70" />
+            </a>
+            <a href="http://www.behance.net/clemensanzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                <img src="img/be.png" alt="" width="70" height="70" />
+            </a>
+            <a href="https://twitter.com/#!/clemens_anzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                <img src="img/tw.png" alt="" width="70" height="70" />
+            </a>
+            <a href="http://soundcloud.com/clemensanzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                <img src="img/sc.png" alt="" width="70" height="70" />
+            </a>
         </div>
     </div>
     <div class="content" id="footer">
         <hr/>
-        <p>2017</p>
+        <p>
+            2017
+        </p>
         <p id="footer-text">
             FYI, the more particles you see floating around in the background the more polluted it is in London right now!
             The data is coming hourly from the <a href="https://www.londonair.org.uk/LondonAir/API">London Air API</a> by King's College London.
@@ -61,6 +74,7 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-67257022-1', 'auto');
         ga('send', 'pageview');
+
         // loader
         (function() {
             window.onload = function() {
@@ -77,6 +91,7 @@
             };
         })();
     </script>
+    <script src="js/ga-helper.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="js/yahooWeatherApi.js"></script>
     <script src="js/londonAirApi.js"></script>
