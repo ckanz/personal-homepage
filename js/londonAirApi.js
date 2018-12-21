@@ -15,7 +15,7 @@ var displayFooter = function (locationName, speciesName, airQualityBand, url) {
     footer.innerHTML = footerText;
   }
   if (footer.style) {
-    footer.style.visibility = 'visible';
+    footer.style.display = 'block';
   }
 };
 
