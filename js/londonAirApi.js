@@ -11,7 +11,7 @@ var displayFooter = function (locationName, speciesName, airQualityBand, url) {
   var footer = document.getElementById('footer-text');
   if (footer && footer.innerHTML) {
     var footerText = footer.innerHTML;
-    footerText += ' Current risk index for '+ speciesName +' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
+    footerText += ' Current risk index for \''+ speciesName +'\' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
     footer.innerHTML = footerText;
   }
   if (footer.style) {
@@ -44,7 +44,7 @@ var getLondonAirQuality = function (siteCode, callback) {
                 var airQualityIndex = parseInt(airQualityDataPoint['@AirQualityIndex']);
                 console.log(speciesName + ' in London Air Api is ' + airQualityBand);
                 if (!validDataFound && airQualityBand && airQualityIndex && airQualityBand != 'No data') {
-                  displayFooter(locationName, speciesName, airQualityBand, 'http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google');
+                  displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
                   validDataFound = true;
                   callback(airQualityIndex);
                 }
