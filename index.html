@@ -25,38 +25,32 @@
         <br/>
         <div class="content" id="Me">
             <div id="bio">
-              ❤️ code, music & especially data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, studied in <a href="http://www.cit.ie" target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">Darmstadt</a>. Now working in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a> as a happy data visualisation engineer 📉📈📊
+                I ❤️ code, music & especially data. Born in <a href="https://en.wikipedia.org/wiki/Aschaffenburg" target="blank">Aschaffenburg</a>, studied in <a href="http://www.cit.ie" target="blank">Cork</a> and <a href="http://www.h-da.de" target="blank">Darmstadt</a>. Now working in <a href="https://en.wikipedia.org/wiki/London" target="blank">London</a> as a happy data visualisation engineer. 📉📈📊
             </div>
         </div>
         <div class="content" id="Life">
+            <div>Here's what I've been up to:</div>
             <iframe src='http://embed.verite.co/timeline/?source=1CzfxyGuZiOerTmJbOv4Hr4H_y2mZ1rmybnNyLMIvnIk&font=PT&maptype=toner&lang=en&height=500&start_at_end=false&initial_zoom=1&timenav_position=bottom' frameborder='0'></iframe>
         </div>
         <div class="content" id="Contact">
-            <a href="https://github.com/ckanz" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', 'https://github.com/ckanz');">
-                <img src="img/git.png" alt="" width="50" height="50" />
-            </a>
-            <a href="http://www.linkedin.com/pub/clemens-anzmann/3b/551/913" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
-                <img src="img/in.png" alt="" width="50" height="50" />
-            </a>
-            <a href="http://www.behance.net/clemensanzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
-                <img src="img/be.png" alt="" width="50" height="50" />
-            </a>
-            <a href="https://twitter.com/#!/clemens_anzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
-                <img src="img/tw.png" alt="" width="50" height="50" />
-            </a>
-            <a href="http://soundcloud.com/clemensanzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
-                <img src="img/sc.png" alt="" width="50" height="50" />
-            </a>
-        </div>
+                <a href="https://github.com/ckanz" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', 'https://github.com/ckanz');">
+                    <img src="img/git.png" alt="" width="50" height="50" />
+                </a>
+                <a href="https://twitter.com/clemens_anzmann" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                    <img src="img/tw.png" alt="" width="50" height="50" />
+                </a>
+                <a href="https://medium.com/@ckanz" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                    <img src="img/medium.svg" alt="" width="50" height="50" />
+                </a>
+                <a href="http://www.linkedin.com/pub/clemens-anzmann/3b/551/913" target="_blank" onClick="trackEvent('Lower Buttons', 'Click', this.href);">
+                    <img src="img/in.png" alt="" width="50" height="50" />
+                </a>
+            </div>
     </div>
     <div class="content" id="footer">
-        <!-- <hr/> -->
-        <p>
-            2017
-        </p>
         <p id="footer-text">
-            FYI, the more particles you see floating around in the background the more polluted it is in London right now!
-            The data is coming hourly from the <a href="https://www.londonair.org.uk/LondonAir/API">London Air API</a> by King's College London.
+            FYI, the more particles you see floating around in the background the more polluted it is in London right now.
+            The data is coming hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
         </p>
     </div>
     <script>
@@ -78,11 +72,11 @@
         // loader
         (function() {
             window.onload = function() {
-                var content = document.getElementsByClassName("content");
+                var content = document.getElementsByClassName('content');
                 for (var i = 0; i < content.length; i++) {
-                    content[i].style.opacity = "0.85";
+                    content[i].style.opacity = '0.85';
                 }
-                document.getElementById("loader").style.display = 'none';
+                document.getElementById('loader').style.display = 'none';
                 getLondonAirQuality('CT3', function(particleNumber) {
                     particlesJS('particles-js',
                         getParticleSettings(particleNumber)

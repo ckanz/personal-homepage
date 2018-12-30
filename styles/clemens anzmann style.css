@@ -14,7 +14,6 @@ body {
     color: white;
     background-color: RGB(68, 68, 68);
     border: none;
-    text-align: center;
 }
 
 a:link {
@@ -81,13 +80,18 @@ a img {
     margin-bottom: 15px;
 }
 
+#Life div {
+    text-align: left;
+    margin-left: 20px;
+    min-width: 302px;
+}
+
 #bio {
-    text-align: justify ;
+    text-align: justify;
     margin: 10px;
     min-width: 302px;
     padding: 10px;
     display: inline-block;
-    border-radius: 5px;
 }
 
 #biotext {
@@ -130,5 +134,5 @@ a img {
 #footer-text {
   font-size: 12px;
   font-style: italic;
-  visibility: hidden;
+  display: none;
 }

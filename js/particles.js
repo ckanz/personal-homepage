@@ -1,9 +1,7 @@
-var getParticleSettings = function (particleNumber) {
+var getParticleSettings = function (airQualityIndex) {
   var colour = '#ffffff';
-  if (particleNumber < 0) {
-    colour = '#08C';
-    particleNumber = Math.abs(particleNumber);
-  }
+  var particleNumber = airQualityIndex * 10;
+
   return {
     'particles': {
       'number': {
@@ -47,15 +45,11 @@ var getParticleSettings = function (particleNumber) {
         }
       },
       'line_linked': {
-        'enable': true,
-        'distance': 150,
-        'color': colour,
-        'opacity': 0.4,
-        'width': 1
+        'enable': false
       },
       'move': {
         'enable': true,
-        'speed': particleNumber,
+        'speed': 2,
         'direction': 'none',
         'random': false,
         'straight': false,

@@ -11,11 +11,11 @@ var displayFooter = function (locationName, speciesName, airQualityBand, url) {
   var footer = document.getElementById('footer-text');
   if (footer && footer.innerHTML) {
     var footerText = footer.innerHTML;
-    footerText += ' Current risk index for '+ speciesName +' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
+    footerText += ' Current risk index for \''+ speciesName +'\' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
     footer.innerHTML = footerText;
   }
   if (footer.style) {
-    footer.style.visibility = 'visible';
+    footer.style.display = 'block';
   }
 };
 
@@ -35,18 +35,20 @@ var getLondonAirQuality = function (siteCode, callback) {
           if (response && response.HourlyAirQualityIndex) {
             console.log(response);
             if (response.HourlyAirQualityIndex.LocalAuthority && response.HourlyAirQualityIndex.LocalAuthority.Site && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
-              var dioxideData = response.HourlyAirQualityIndex.LocalAuthority.Site.species[0];
               var locationName = response.HourlyAirQualityIndex.LocalAuthority['@LocalAuthorityName'];
-              var speciesName = dioxideData['@SpeciesName'];
-              var airQualityBand = dioxideData['@AirQualityBand'];
-              var airQualityIndex = dioxideData['@AirQualityIndex'];
-              if(airQualityBand && airQualityIndex && airQualityBand != 'No data') {
-                displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
-                callback(airQualityIndex*2);
-              }
-              else {
-                console.log('London Air Api responsed with "No Data".');
-              }
+              var airQualityDataArray = response.HourlyAirQualityIndex.LocalAuthority.Site.species;
+              var validDataFound = false;
+              airQualityDataArray.forEach(function(airQualityDataPoint) {
+                var speciesName = airQualityDataPoint['@SpeciesName'];
+                var airQualityBand = airQualityDataPoint['@AirQualityBand'];
+                var airQualityIndex = parseInt(airQualityDataPoint['@AirQualityIndex']);
+                console.log(speciesName + ' in London Air Api is ' + airQualityBand);
+                if (!validDataFound && airQualityBand && airQualityIndex && airQualityBand != 'No data') {
+                  displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
+                  validDataFound = true;
+                  callback(airQualityIndex);
+                }
+              });
             } else {
               console.log('London Air Api response does not contain expected data.');
             }
