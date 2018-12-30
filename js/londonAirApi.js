@@ -44,7 +44,7 @@ var getLondonAirQuality = function (siteCode, callback) {
                 var airQualityIndex = parseInt(airQualityDataPoint['@AirQualityIndex']);
                 console.log(speciesName + ' in London Air Api is ' + airQualityBand);
                 if (!validDataFound && airQualityBand && airQualityIndex && airQualityBand != 'No data') {
-                  displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
+                  displayFooter(locationName, speciesName, airQualityBand, 'http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google');
                   validDataFound = true;
                   callback(airQualityIndex);
                 }
