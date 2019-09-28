@@ -7,6 +7,15 @@ var getLondonAirApiUrl = function (siteCode) {
   );
 };
 
+var getLondonTimeSeriesAirApiUrl = function (siteCode) {
+  //CT3
+  return (
+    'http://api.erg.kcl.ac.uk/AirQuality/Data/Wide/Site/SiteCode=' +
+    siteCode +
+    '/StartDate=2019-09-20/EndDate=2019-09-26/JSON'
+  );
+};
+
 var displayFooter = function (locationName, speciesName, airQualityBand, url) {
   var footer = document.getElementById('footer-text');
   if (footer && footer.innerHTML) {
@@ -33,8 +42,10 @@ var getLondonAirQuality = function (siteCode, callback) {
             callback(10);
           }
           if (response && response.HourlyAirQualityIndex) {
-            console.log(response);
-            if (response.HourlyAirQualityIndex.LocalAuthority && response.HourlyAirQualityIndex.LocalAuthority.Site && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
+            console.log('Current Hour', response);
+            if (response.HourlyAirQualityIndex.LocalAuthority
+              && response.HourlyAirQualityIndex.LocalAuthority.Site
+              && response.HourlyAirQualityIndex.LocalAuthority.Site.species) {
               var locationName = response.HourlyAirQualityIndex.LocalAuthority['@LocalAuthorityName'];
               var airQualityDataArray = response.HourlyAirQualityIndex.LocalAuthority.Site.species;
               var validDataFound = false;
@@ -49,6 +60,47 @@ var getLondonAirQuality = function (siteCode, callback) {
                   callback(airQualityIndex);
                 }
               });
+            } else {
+              console.log('London Air Api response does not contain expected data.');
+            }
+          } else {
+            console.log('London Air Api response does not contain expected data.');
+          }
+        }
+      }
+    };
+    xhr.send(null);
+  } catch (err) {
+    console.log('Unable to retrieve London Air API data: ' + err);
+  }
+};
+
+var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
+  var xhr = new XMLHttpRequest();
+  try {
+    xhr.open('GET', getLondonTimeSeriesAirApiUrl(siteCode), true);
+    xhr.onload = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          try {
+            var response = JSON.parse(xhr.response);
+          } catch (err) {
+            console.log('Unable to parse London Air API response: ' + err);
+            callback(10);
+          }
+          if (response && response.AirQualityData) {
+            if (response.AirQualityData.RawAQData
+              && response.AirQualityData.RawAQData.Data
+              && response.AirQualityData.RawAQData.Data.length > 0
+              && response.AirQualityData.Columns
+              && response.AirQualityData.Columns.Column
+              && response.AirQualityData.Columns.Column .length > 0) {
+              console.log('Last Week Time Series:', response);
+              var columns = response.AirQualityData.Columns.Column
+              console.log('columns', columns)
+              // TODO do this for each columns and pick the first array where points are valid
+              var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record) { return record['@' + columns[0]['@ColumnId']] })
+              callback(timeSeries);
             } else {
               console.log('London Air Api response does not contain expected data.');
             }

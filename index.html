@@ -87,6 +87,9 @@
                     content[i].style.opacity = '0.85';
                 }
                 document.getElementById('loader').style.display = 'none';
+                getLondonTimeSeriesAirQuality('CT3', function(data) {
+                  console.log('data', data)
+                })
                 getLondonAirQuality('CT3', function(particleNumber) {
                     particlesJS('particles-js',
                         getParticleSettings(particleNumber)
