@@ -136,3 +136,14 @@ a img {
   font-style: italic;
   display: none;
 }
+
+#barchart {
+  margin: -25px;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 3, 3;
+  stroke-width: 2px;
+}
