@@ -14,12 +14,18 @@ var drawLineChart = function(data = []) {
   var line = d3.line()
     .x(function(d, i) { return xScale(i); })
     .y(function(d) { return yScale(d); })
-    .curve(d3.curveMonotoneX)
+    .curve(d3.curveMonotoneX);
 
   var svg = d3.select("#barchart").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
+    .attr('height' ,10);
+
+  svg.transition()
+    .duration(5000)
+    .ease(d3.easeElastic)
+    .attr("height", height + margin.top + margin.bottom);
+
+  svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   svg.append("path")

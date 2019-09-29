@@ -96,14 +96,14 @@ var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
               && response.AirQualityData.Columns.Column
               && response.AirQualityData.Columns.Column .length > 0) {
               console.log('Last Week Time Series:', response);
-              var columns = response.AirQualityData.Columns.Column
-              console.log('columns', columns)
               var timeSeriesArray = []
-              columns.forEach(function(column) {
+              response.AirQualityData.Columns.Column.forEach(function(column) {
                 var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record = {}) {
-                  return parseFloat(record['@' + column['@ColumnId']]) || 0
+                  return parseFloat(record['@' + column['@ColumnId']])
                 })
-                timeSeriesArray.push(timeSeries)
+                timeSeriesArray.push(
+                  timeSeries.filter(function(d) { return !isNaN(d) })
+                )
               })
               callback(timeSeriesArray);
             } else {
