@@ -16,6 +16,7 @@
     <div id="particles-js"></div>
     <div id="header">
       <div>Clemens Anzmann</div>
+      <hr />
       <div id="barchart"></div>
     </div>
     <div id="innercontent" class="loadingContent">
@@ -59,6 +60,7 @@
     </div>
     <div class="content" id="footer">
         <p/>
+        <hr />
         <div id="footer-text">
             FYI, the more particles you see floating around in the background the more polluted it is in London right now.
             The data is coming hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
@@ -89,7 +91,9 @@
                 }
                 document.getElementById('loader').style.display = 'none';
                 getLondonTimeSeriesAirQuality('CT3', function(data) {
-                  console.log('data', data)
+                  data.forEach(function(series) {
+                    drawLineChart(series)
+                  })
                 })
                 getLondonAirQuality('CT3', function(particleNumber) {
                     particlesJS('particles-js',

@@ -139,11 +139,13 @@ a img {
 
 #barchart {
   margin: -25px;
+  position: fixed;
+  top: 245px;
 }
 
 .line {
   fill: none;
   stroke: white;
-  stroke-dasharray: 3, 3;
+  stroke-dasharray: 2, 2;
   stroke-width: 2px;
 }

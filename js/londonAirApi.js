@@ -98,9 +98,14 @@ var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
               console.log('Last Week Time Series:', response);
               var columns = response.AirQualityData.Columns.Column
               console.log('columns', columns)
-              // TODO do this for each columns and pick the first array where points are valid
-              var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record) { return record['@' + columns[0]['@ColumnId']] })
-              callback(timeSeries);
+              var timeSeriesArray = []
+              columns.forEach(function(column) {
+                var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record = {}) {
+                  return parseFloat(record['@' + column['@ColumnId']]) || 0
+                })
+                timeSeriesArray.push(timeSeries)
+              })
+              callback(timeSeriesArray);
             } else {
               console.log('London Air Api response does not contain expected data.');
             }
