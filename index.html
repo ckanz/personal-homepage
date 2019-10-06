@@ -91,10 +91,10 @@
                 }
                 document.getElementById('loader').style.display = 'none';
                 getLondonTimeSeriesAirQuality('CT3', function(data) {
-                  data.forEach(function(series) {
-                    drawLineChart(series)
-                  })
-                })
+                    data.forEach(function(series) {
+                        drawLineChart(series)
+                    });
+                });
                 getLondonAirQuality('CT3', function(particleNumber) {
                     particlesJS('particles-js',
                         getParticleSettings(particleNumber)

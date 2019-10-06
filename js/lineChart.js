@@ -1,7 +1,7 @@
 var drawLineChart = function(data = []) {
-  var margin = {top: 10, right: 0, bottom: 10, left: 0},
+  var margin = {top: 50, right: 0, bottom: 50, left: 0},
     width = window.innerWidth - margin.left - margin.right,
-    height = 100 - margin.top - margin.bottom;
+    height = window.innerHeight / 5 - margin.top - margin.bottom;
 
   var xScale = d3.scaleLinear()
     .domain([0, data.length - 1])
@@ -18,18 +18,23 @@ var drawLineChart = function(data = []) {
 
   var svg = d3.select("#barchart").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr('height' ,10);
-
-  svg.transition()
-    .duration(5000)
-    .ease(d3.easeElastic)
     .attr("height", height + margin.top + margin.bottom);
+
+  // svg.transition()
+    // .duration(5000)
+    // .ease(d3.easeElastic)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom);
 
   svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  svg.append("path")
+  var line = svg.append("path")
     .datum(data)
     .attr("class", "line")
     .attr("d", line);
+
+  setTimeout(function() {
+    line.style('stroke-dasharray', '2, 2');
+  }, 100)
 }

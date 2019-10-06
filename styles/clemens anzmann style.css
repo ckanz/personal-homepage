@@ -138,14 +138,15 @@ a img {
 }
 
 #barchart {
-  margin: -25px;
   position: fixed;
-  top: 245px;
+  top: 50px;
 }
 
 .line {
   fill: none;
   stroke: white;
-  stroke-dasharray: 2, 2;
+  stroke-dasharray: 2, 500;
+  transition: stroke-dasharray 10s;
+  opacity: 0.35;
   stroke-width: 2px;
 }
