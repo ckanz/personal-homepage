@@ -20,12 +20,6 @@ var drawLineChart = function(data = []) {
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-  // svg.transition()
-    // .duration(5000)
-    // .ease(d3.easeElastic)
-    // .attr("width", width + margin.left + margin.right)
-    // .attr("height", height + margin.top + margin.bottom);
-
   svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -35,6 +29,8 @@ var drawLineChart = function(data = []) {
     .attr("d", line);
 
   setTimeout(function() {
-    line.style('stroke-dasharray', '2, 2');
+    line
+      .style('opacity', 0.25)
+      .style('stroke-dasharray', '2, 5');
   }, 100)
 }

@@ -1,5 +1,4 @@
 var getLondonAirApiUrl = function (siteCode) {
-  //CT3
   return (
     'http://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/SiteCode=' +
     siteCode +
@@ -8,11 +7,28 @@ var getLondonAirApiUrl = function (siteCode) {
 };
 
 var getLondonTimeSeriesAirApiUrl = function (siteCode) {
-  //CT3
+  var date = new Date();
+  var day, month, year;
+
+  day = date.getDate();
+  month = ('0' + (date.getMonth() + 1)).slice(-2);
+  year = date.getFullYear();
+  var endDate = year + '-' + month + '-' + day
+
+  date = new Date(date.setDate(date.getDate() - 7));
+  day = date.getDate();
+  month = ('0' + (date.getMonth() + 1)).slice(-2);
+  year = date.getFullYear();
+  var startDate = year + '-' + month + '-' + day;
+
   return (
     'http://api.erg.kcl.ac.uk/AirQuality/Data/Wide/Site/SiteCode=' +
     siteCode +
-    '/StartDate=2019-09-20/EndDate=2019-09-26/JSON'
+    '/StartDate=' +
+    startDate +
+    '/EndDate=' +
+    endDate +
+    '/JSON'
   );
 };
 
@@ -77,6 +93,7 @@ var getLondonAirQuality = function (siteCode, callback) {
 
 var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
   var xhr = new XMLHttpRequest();
+  console.log(getLondonTimeSeriesAirApiUrl(siteCode))
   try {
     xhr.open('GET', getLondonTimeSeriesAirApiUrl(siteCode), true);
     xhr.onload = function () {

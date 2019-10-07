@@ -146,7 +146,7 @@ a img {
   fill: none;
   stroke: white;
   stroke-dasharray: 2, 500;
-  transition: stroke-dasharray 10s;
-  opacity: 0.35;
+  transition: all 10s;
+  opacity: 0.75;
   stroke-width: 2px;
 }
