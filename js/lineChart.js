@@ -16,7 +16,7 @@ var drawLineChart = function(data = []) {
     .y(function(d) { return yScale(d); })
     .curve(d3.curveMonotoneX);
 
-  var svg = d3.select("#barchart").append("svg")
+  var svg = d3.select("#linechart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 

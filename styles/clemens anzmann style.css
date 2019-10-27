@@ -43,38 +43,32 @@ hr {
     opacity: 0.5;
 }
 
-.content {
-    width: 95%;
+.content, #innercontent {
     min-width: 355px;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
     position: relative;
-    opacity: 0.0;
-    -webkit-transition: opacity 3s;
-    transition: opacity 3s;
+}
+.content {
+    width: 95%;
     z-index: 1;
 }
 
 #innercontent {
+    opacity: 0.0;
+    transition: opacity 3s;
     width: 75%;
-    min-width: 355px;
-    max-width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: rgba(0, 0, 0, 0.33);
-    border-radius: 10px;
-    position: relative;
     padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.33);
     border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 
 #header {
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
     font-size: 30px;
     padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #me,
@@ -98,10 +92,6 @@ hr {
     min-width: 302px;
     padding: 10px;
     display: inline-block;
-}
-
-#biotext {
-    margin: 10px;
 }
 
 #me img {
@@ -139,19 +129,25 @@ hr {
 
 
 #footer {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#footer-text {
+  margin-top: 0px;
+  opacity: 0.0;
+  transition: opacity 3s;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 14px;
   font-style: italic;
-  display: none;
 }
 
-#barchart {
+#linechart {
   position: fixed;
   top: 50px;
+  left: 0px;
 }
 
 .line {

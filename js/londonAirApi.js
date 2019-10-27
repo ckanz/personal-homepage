@@ -33,14 +33,14 @@ var getLondonTimeSeriesAirApiUrl = function (siteCode) {
 };
 
 var displayFooter = function (locationName, speciesName, airQualityBand, url) {
-  var footer = document.getElementById('footer-text');
+  var footer = document.getElementById('footer');
   if (footer && footer.innerHTML) {
     var footerText = footer.innerHTML;
     footerText += ' Current risk index for \''+ speciesName +'\' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
     footer.innerHTML = footerText;
   }
   if (footer.style) {
-    footer.style.display = 'block';
+    footer.style.opacity = '1.0';
   }
 };
 

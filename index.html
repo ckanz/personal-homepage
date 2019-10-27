@@ -17,13 +17,13 @@
     <div id="header">
       <div>Clemens Anzmann</div>
       <hr />
-      <div id="barchart"></div>
+      <div id="linechart"></div>
     </div>
+    <span id="loader">
+        <br/>
+        loading content ...
+    </span>
     <div id="innercontent" class="loadingContent">
-        <span id="loader">
-            <br/>
-            loading content ...
-        </span>
         <br/>
         <div class="content" id="me">
             <div id="bio">
@@ -58,12 +58,10 @@
                 </a>
             </div>
           <hr style="margin: 25px 20% 25px 20%" />
-      <div class="content" id="footer">
-          <div id="footer-text">
-              FYI, the more particles you see floating around in the background the more polluted it is in London right now. The lines indicate the pollution trend over the past week.
-              The data comes hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
-          </div>
-      </div>
+    </div>
+      <div id="footer">
+	    FYI, the more particles you see floating around in the background the more polluted it is in London right now. The lines indicate the pollution trend over the past week.
+	    The data comes hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
     </div>
     <script>
         // GA
@@ -84,10 +82,8 @@
         // loader
         (function() {
             window.onload = function() {
-                var content = document.getElementsByClassName('content');
-                for (var i = 0; i < content.length; i++) {
-                    content[i].style.opacity = '1.0';
-                }
+                var content = document.getElementById('innercontent');
+                content.style.opacity = '1.0';
                 document.getElementById('loader').style.display = 'none';
                 getLondonTimeSeriesAirQuality('CT3', function(data) {
                     data.forEach(function(series) {
