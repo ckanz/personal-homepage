@@ -23,14 +23,14 @@ var drawLineChart = function(data = []) {
   svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  var transitionBase = 1500;
   var line = svg.append("path")
     .datum(data)
     .attr("class", "line")
+    .style('opacity', 0.0)
+    .transition()
+    .duration(transitionBase + (Math.random() * transitionBase))
+    .delay(Math.random() * transitionBase)
+    .style('opacity', 0.25)
     .attr("d", line);
-
-  setTimeout(function() {
-    line
-      .style('opacity', 0.25)
-      .style('stroke-dasharray', '2, 5');
-  }, 100)
 }

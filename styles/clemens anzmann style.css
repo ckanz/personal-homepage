@@ -145,8 +145,6 @@ a img {
 .line {
   fill: none;
   stroke: white;
-  stroke-dasharray: 2, 500;
-  transition: all 10s;
-  opacity: 0.75;
+  stroke-dasharray: 2, 5;
   stroke-width: 2px;
 }
