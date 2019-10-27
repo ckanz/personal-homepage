@@ -1,4 +1,4 @@
-var drawLineChart = function(data = []) {
+var drawLineChart = function(data = [], metric = '') {
   var margin = {top: 50, right: 0, bottom: 50, left: 0},
     width = window.innerWidth - margin.left - margin.right,
     height = window.innerHeight / 5 - margin.top - margin.bottom;
@@ -20,17 +20,28 @@ var drawLineChart = function(data = []) {
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-  svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
   var transitionBase = 1500;
-  var line = svg.append("path")
+  svg.append("path")
     .datum(data)
     .attr("class", "line")
     .style('opacity', 0.0)
     .transition()
     .duration(transitionBase + (Math.random() * transitionBase))
     .delay(Math.random() * transitionBase)
-    .style('opacity', 0.25)
+    .style('opacity', 0.15)
     .attr("d", line);
+
+  var metricText = svg.append('text')
+    .attr('x', 20)
+    .attr('y', height / 2)
+    .style('height', 50)
+    .style('fill', 'white')
+    .style('font-family', 'arial')
+    .style('font-size', 12)
+    .text(metric)
+    .style('opacity', 0.0)
+    .transition()
+    .duration(transitionBase + (Math.random() * transitionBase))
+    .delay(Math.random() * transitionBase)
+    .style('opacity', 0.2);
 }

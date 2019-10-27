@@ -127,18 +127,22 @@ var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
               && response.AirQualityData.Columns.Column
               && response.AirQualityData.Columns.Column .length > 0) {
               console.log('Last Week Time Series:', response);
-              var timeSeriesArray = []
+              var timeSeriesArray = [];
+              var metricNameArray = [];
               response.AirQualityData.Columns.Column.forEach(function(column) {
-                var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record = {}) {
-                  return parseFloat(record['@' + column['@ColumnId']])
-                })
-                timeSeriesArray.push(
-                  timeSeries.filter(function(d) { return !isNaN(d) })
-                )
+                if (column && column['@ColumnName'] && column['@ColumnId']) {
+                  metricNameArray.push(column['@ColumnName'].split(': ')[1]);
+                  var timeSeries = response.AirQualityData.RawAQData.Data.map(function(record = {}) {
+                    return parseFloat(record['@' + column['@ColumnId']])
+                  })
+                  timeSeriesArray.push(
+                    timeSeries.filter(function(d) { return !isNaN(d) })
+                  )
+                }
               })
               displayFooter();
               displayElement('footer-line-expl');
-              callback(timeSeriesArray);
+              callback({ timeSeriesArray, metricNameArray });
             } else {
               console.log('London Air Api response does not contain expected data.');
             }
