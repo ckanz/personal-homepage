@@ -32,16 +32,28 @@ var getLondonTimeSeriesAirApiUrl = function (siteCode) {
   );
 };
 
-var displayFooter = function (locationName, speciesName, airQualityBand, url) {
+var displayFooter = function () {
   var footerWrapper = document.getElementById('footer');
-  var footer = document.getElementById('footer-data');
-  if (footer) {
-    var footerText = ' Current risk index for \''+ speciesName +'\' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
-    footer.innerHTML = footerText;
-  }
   if (footerWrapper.style) {
     footerWrapper.style.opacity = '1.0';
   }
+};
+
+var displayElement = function (id) {
+  var element = document.getElementById(id);
+  if (element && element.style) {
+    element.style.opacity = '1.0';
+    element.style.display = 'inline';
+  }
+};
+
+var displayFooterData = function (locationName, speciesName, airQualityBand, url) {
+  var footerDataId = 'footer-data';
+  var footer = document.getElementById(footerDataId);
+  if (footer) {
+    footer.innerHTML = ' Current risk index for \''+ speciesName +'\' in \''+ locationName +'\' appears to be \'<a target="blank" href="'+url+'">'+ airQualityBand +'</a>\'.';
+  }
+  displayElement(footerDataId);
 };
 
 var getLondonAirQuality = function (siteCode, callback) {
@@ -71,7 +83,9 @@ var getLondonAirQuality = function (siteCode, callback) {
                 var airQualityIndex = parseInt(airQualityDataPoint['@AirQualityIndex']);
                 console.log(speciesName + ' in London Air Api is ' + airQualityBand);
                 if (!validDataFound && airQualityBand && airQualityIndex && airQualityBand != 'No data') {
-                  displayFooter(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
+                  displayFooter();
+                  displayFooterData(locationName, speciesName, airQualityBand, getLondonAirApiUrl(siteCode));
+                  displayElement('footer-point-expl');
                   validDataFound = true;
                   callback(airQualityIndex);
                 }
@@ -122,6 +136,8 @@ var getLondonTimeSeriesAirQuality = function (siteCode, callback) {
                   timeSeries.filter(function(d) { return !isNaN(d) })
                 )
               })
+              displayFooter();
+              displayElement('footer-line-expl');
               callback(timeSeriesArray);
             } else {
               console.log('London Air Api response does not contain expected data.');
