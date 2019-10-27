@@ -12,6 +12,7 @@ body {
     text-align: center;
     font-weight: normal;
     color: white;
+    text-shadow: 5px 0px 5px black;
     background-color: RGB(68, 68, 68);
     border: none;
 }
@@ -38,6 +39,10 @@ a img {
     border: 0
 }
 
+hr {
+    opacity: 0.5;
+}
+
 .content {
     width: 95%;
     min-width: 355px;
@@ -57,10 +62,11 @@ a img {
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.33);
     border-radius: 10px;
     position: relative;
     padding-bottom: 5px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 #header {
@@ -71,16 +77,16 @@ a img {
     padding-top: 25px;
 }
 
-#Me,
-#Contact,
-#Media,
-#Life {
+#me,
+#contact,
+#media,
+#life {
     display: table;
     width: 95%;
     margin-bottom: 15px;
 }
 
-#Life div, .content p {
+#life div, .content p {
     text-align: left;
     margin-left: 20px;
     min-width: 302px;
@@ -98,7 +104,7 @@ a img {
     margin: 10px;
 }
 
-#Me img {
+#me img {
     margin-top: 15px;
     margin: 10px;
     float:left;
@@ -106,16 +112,16 @@ a img {
     border: 1px solid gray;
 }
 
-#Contact a,
-#Life a,
-#Media a {
+#contact a,
+#life a,
+#media a {
     display: table-cell;
     width: 16.666666667%;
     line-height: 87px;
     text-align: center;
 }
 
-#Life iframe {
+#life iframe {
     margin: 10px;
     width: 94%;
     height: 484px;
@@ -131,8 +137,14 @@ a img {
   left: 0px;
 }
 
+
+#footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #footer-text {
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   display: none;
 }
