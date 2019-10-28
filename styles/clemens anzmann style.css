@@ -38,49 +38,49 @@ a img {
     border: 0
 }
 
-.content {
-    width: 95%;
+hr {
+    opacity: 0.5;
+}
+
+.content, #innercontent {
     min-width: 355px;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
     position: relative;
-    opacity: 0.0;
-    -webkit-transition: opacity 3s;
-    transition: opacity 3s;
+}
+.content {
+    width: 95%;
     z-index: 1;
 }
 
 #innercontent {
+    opacity: 0.0;
+    transition: opacity 3s;
     width: 75%;
-    min-width: 355px;
-    max-width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: rgba(0, 0, 0, 0.1);
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.33);
+    border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    position: relative;
-    padding-bottom: 5px;
+    text-shadow: 5px 0px 5px black;
 }
 
 #header {
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
     font-size: 30px;
     padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-#Me,
-#Contact,
-#Media,
-#Life {
+#me,
+#contact,
+#media,
+#life {
     display: table;
     width: 95%;
     margin-bottom: 15px;
 }
 
-#Life div, .content p {
+#life div, .content p {
     text-align: left;
     margin-left: 20px;
     min-width: 302px;
@@ -94,11 +94,7 @@ a img {
     display: inline-block;
 }
 
-#biotext {
-    margin: 10px;
-}
-
-#Me img {
+#me img {
     margin-top: 15px;
     margin: 10px;
     float:left;
@@ -106,16 +102,16 @@ a img {
     border: 1px solid gray;
 }
 
-#Contact a,
-#Life a,
-#Media a {
+#contact a,
+#life a,
+#media a {
     display: table-cell;
     width: 16.666666667%;
     line-height: 87px;
     text-align: center;
 }
 
-#Life iframe {
+#life iframe {
     margin: 10px;
     width: 94%;
     height: 484px;
@@ -124,15 +120,45 @@ a img {
 }
 
 #particles-js{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 
-#footer-text {
-  font-size: 12px;
-  font-style: italic;
-  display: none;
+
+#footer {
+    margin-top: 0px;
+    opacity: 0.0;
+    transition: opacity 3s;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+#footer-point-expl, #footer-line-expl, #footer-data {
+    display: none;
+    opacity: 0.0;
+    transition: opacity 3s;
+}
+
+#linechart {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 2, 5;
+  stroke-width: 2px;
 }
