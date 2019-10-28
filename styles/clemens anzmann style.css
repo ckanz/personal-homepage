@@ -1,13 +1,18 @@
 @font-face {
-    font-family: "Font";
-    src: url("Existence-Light.otf");
+    font-family: "Ubuntu";
+    src: url("UbuntuMono-R.ttf");
+}
+
+@font-face {
+    font-family: "Header";
+    src: url("BPdotsMinusBold.otf");
 }
 
 body {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    font-family: "Font", arial, sans-serif;
+    font-family: "Ubuntu", arial, sans-serif;
     font-size: 18px;
     text-align: center;
     font-weight: normal;
@@ -62,11 +67,11 @@ hr {
     background-color: rgba(0, 0, 0, 0.33);
     border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    text-shadow: 5px 0px 5px black;
 }
 
 #header {
-    font-size: 30px;
+    font-family: "Header", arial, sans-serif;
+    font-size: 60px;
     padding-top: 25px;
     padding-bottom: 25px;
 }
