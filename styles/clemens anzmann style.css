@@ -143,10 +143,14 @@ hr {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     font-size: 14px;
     font-style: italic;
+}
+
+#footer-text {
+  width: 90%;
+  margin: auto;
 }
 
 #footer-point-expl, #footer-line-expl, #footer-data {
