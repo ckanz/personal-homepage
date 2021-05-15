@@ -104,30 +104,23 @@ hr {
 }
 
 #footer {
-    margin-top: 0px;
-    opacity: 0.0;
+    opacity: 1.0;
     transition: opacity 3s;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding: 10px;
     font-size: 14px;
     font-style: italic;
+    margin-top: 50px;
+    line-height: 2;
 }
 
-#footer-text {
-    width: 90%;
-    margin: auto;
-}
-
+#footer-text,
 #footer-point-expl,
 #footer-line-expl,
 #footer-data {
+    width: 90%;
     display: none;
-    opacity: 0.0;
+    opacity: 1.0;
     transition: opacity 3s;
 }
 
