@@ -62,12 +62,12 @@
         <hr />
         <div>
           <div id='footer-text'>
-	    FYI, visuals in the background indicate current pollution levels in London. The data comes hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
+	    FYI, visuals in the background indicate pollution levels in London. The data comes hourly from the <a href="http://www.londonair.org.uk/london/asp/publicbulletin.asp?la_id=7&MapType=Google">London Air API</a> by King's College London.
         </div>
-        <span id="footer-point-expl">Particles represent level of pollution of the current hour.</span>
-        <span id="footer-line-expl">Lines indicate hourly pollution trends over the past 7 days.</span>
+        <span id="footer-point-expl">Particles represent the level of pollution of the current hour.</span>
+        <span id="footer-line-expl">Lines indicate hourly pollution since the beginning of 2021.</span>
         <span id="footer-data"></span>
-        <div>(c) Clemens Anzmann 2021</div>
+        <div><a href="https://github.com/ckanz/personal-homepage">by Clemens Anzmann</a> 2021</div>
       </div>
     </div>
     <script>
@@ -97,11 +97,11 @@
                         drawLineChart(series, data.metricNameArray[i])
                     });
                 });
-                getLondonAirQuality('CT3', function(particleNumber) {
-                    particlesJS('particles-js',
-                        getParticleSettings(particleNumber)
-                    );
-                });
+                // getLondonAirQuality('CT3', function(particleNumber) {
+                //     particlesJS('particles-js',
+                //         getParticleSettings(particleNumber)
+                //     );
+                // });
             };
         })();
     </script>
