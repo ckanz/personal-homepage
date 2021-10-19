@@ -8,7 +8,7 @@ var getLondonAirApiUrl = function (siteCode) {
 
 var getLondonTimeSeriesAirApiUrl = function (siteCode) {
   // use local data until API connection is fixed
-  return 'https://www.clemens-anzmann.com/js/localPollutionData.json';
+  return '/js/localPollutionData.json';
 
   var date = new Date();
   var day, month, year;
